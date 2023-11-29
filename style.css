@@ -70,16 +70,42 @@ header{
     width: 90px;
     position: relative;
     margin-bottom: 4rem;
+    display: flex;
+    flex-flow: column-reverse;
 }
 .home-content main{
-    width: 100%;
+    border: solid 1px red;
+    width: calc(100% - 190px);
     margin: 4rem 1rem 4rem 2rem;
-    background-image: url(img/kari_noimage.jpg);
+    position: relative;
+}
+.key-slider,
+.slick-list,
+.slick-track {
+  height: 100% !important;
+}
+/* ホームスライダー */
+.slick__bg {
+    height: calc(1080px - 6rem);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
-    position: relative;
+    background-color: #EF6E00;
+    box-sizing:border-box;
 }
+.slick__bg01 {
+    background-image: url(img/kari_noimage.jpg);
+}
+.slick__bg02 {
+    background-image: url(img/kari_sotusei.jpg);
+}
+.slick__bg03 {
+    background-image: url(img/kari_sotusei2.jpg);
+}
+.slider-sub .slick-track {
+    transform: unset !important;
+  }
+
 .home-content main img{
     position: absolute;
     bottom: -30px;
@@ -89,33 +115,36 @@ header{
 .slider-sub{
     list-style: none;
     padding: 0;
-    position: absolute;
+    position: relative;
     bottom: 0;
     left: 0;
+    .slick-active {
+        margin-top: 1rem;
+        opacity: 0.7;
+        position: relative;
+        padding-left: 12px;
+    }
+    .slick-current {
+        opacity: 1;
+        z-index: 1000;
+    }
+}
 
-}
-.slider-sub li{
-    margin-top: 1rem;
-    opacity: 0.7;
-}
-.slider-sub .active{
-    opacity: 1;
-}
 .slider-sub img{
-    width: 80px;
-    height: 80px;
+    width: 80px !important;
+    height: 80px !important;
     object-fit: cover;
    
 }
-
-.slider-sub .active::after{
+.slider-sub .slick-current::after{
     background-color: var(--main-color);
     border-radius: 2px;
     content: "";
     height: 80px;
     width: 4px;
     position: absolute;
-    right: -15px;
+    left: 0px;
+    top:0
 }
 /*コンテンツ共通*/
 .home-more-link{

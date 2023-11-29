@@ -27,7 +27,7 @@
             <li><a href="#">教員・スタッフ</a></li>
             <li><a href="#">学科活動</a></li>
             <li><a href="#">学生作品</a></li>
-            <li><a href="#">ブログ</a></li>
+            <li><a href="https://www.kiryu-u.ac.jp/category/blog-all/blog-art/" target="_blank">ブログ</a></li>
         </ul>
 
     </div>
@@ -39,15 +39,16 @@
         <div class="home-content">
             <aside>
                 <ul class="slider-sub">
-                    <li><img src="img/kari_sotusei.jpg" alt="サムネイル"></li>
-                    <li class="active"><img src="img/kari_noimage.jpg" alt="サムネイル"></li>
-                    <li><img src="img/kari_sotusei2.jpg" alt="サムネイル"></li>
+                    <li class="slider-sub-item"><img src="img/kari_noimage.jpg" alt="サムネイル"></li>
+                    <li class="slider-sub-item"><img src="img/kari_sotusei.jpg" alt="サムネイル"></li>
+                    <li class="slider-sub-item"><img src="img/kari_sotusei2.jpg" alt="サムネイル"></li>
                 </ul>
 
             </aside>
-            <main>
-                <!--スライダー-->
-                <img src="img/logo_2.svg" alt="">
+            <main class="slider-main">
+                    <div class="slick__bg slick__bg01"></div>
+                    <div class="slick__bg slick__bg02"></div>
+                    <div class="slick__bg slick__bg03"></div>
             </main>
         </div>
     </div>
@@ -142,6 +143,27 @@
         centerPadding: '25%',
     });
     </script>
+    <script>
+$(function() {
+    $('.slider-main').slick({    //ホームスライダー
+        asNavFor:'.slider-sub', // 連動（お互いのクラスを指定）
+        fade: true,
+        autoplay: false,
+        speed: 200,
+        pauseOnFocus: false,
+        pauseOnHover: false,
+        arrows: false,
+    })
+    // サムネイルのオプション
+  $(".slider-sub").slick({
+    slidesToShow: 3, // サムネイルの表示数
+    asNavFor: ".slider-main", // メイン画像と同期
+    focusOnSelect: true, // サムネイルクリックを有効化
+    vertical: true, // 縦配置
+    verticalSwiping: true, 
+  });
+});
+    </script>
 <script>
     const menuBtn = document.getElementById('menu-btn');
     const menu = document.getElementById('menu');
@@ -183,6 +205,7 @@
             
             body.style.overflow = 'auto';
         }
+
     });
 </script>
 </body>
