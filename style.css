@@ -1,0 +1,509 @@
+@charset "UTF-8";
+:root{
+    --main-color: #EF6E00;
+    --sub-color:#3B64A1;
+    --text-color:#707070;
+}
+html {
+    font-size: 100%;
+    scrollbar-gutter: stable;
+  } 
+  html:has(dialog:modal) {
+    overflow: hidden;
+  }
+body{
+    font-family: 'Noto Serif JP', serif;
+    background-color: #F8F8F8;
+    color: #333;
+}
+
+h1{
+    position: relative;
+    display: inline-block;
+    font-weight: 400;
+    align-items: flex-end;
+    margin:  2rem 0 0 -1rem;
+    padding-left: 1rem;
+}
+h1 img{
+    height: 4rem;
+}
+h1::before{
+    background-color: var(--main-color);
+    border-radius: 2px;
+    content: "";
+    height: 4rem;
+    width: 4px;
+    position: absolute;
+    left: 0;
+}
+
+.home-wrapper{
+    height: 100vh;
+    max-height: 1080px;
+    width: 90%;
+    max-width: 1780px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+
+}
+.arrow_down{
+    height: 150px;
+    position: fixed;
+    bottom: 10px;
+    left: calc(100vw - 4vw);
+    z-index: 500;
+}
+header{
+    display: flex;
+    width: 100%;
+}
+.home-content{
+    display: flex;
+    width: 100%;
+    height: calc(100% - 10rem);
+}
+.home-content aside{
+    width: 90px;
+    position: relative;
+    margin-bottom: 4rem;
+}
+.home-content main{
+    width: 100%;
+    margin: 4rem 1rem 4rem 2rem;
+    background-image: url(img/kari_noimage.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    position: relative;
+}
+.home-content main img{
+    position: absolute;
+    bottom: -30px;
+    right: -15px;
+    width: 50%;
+}
+.slider-sub{
+    list-style: none;
+    padding: 0;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+}
+.slider-sub li{
+    margin-top: 1rem;
+    opacity: 0.7;
+}
+.slider-sub .active{
+    opacity: 1;
+}
+.slider-sub img{
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+   
+}
+
+.slider-sub .active::after{
+    background-color: var(--main-color);
+    border-radius: 2px;
+    content: "";
+    height: 80px;
+    width: 4px;
+    position: absolute;
+    right: -15px;
+}
+/*コンテンツ共通*/
+.home-more-link{
+    width: 100%;
+    text-align: center;
+    margin: 2rem 0 1rem;
+}
+
+/*--下線矢印リンク*/
+.arrow_link{
+  position: relative;
+    display: inline-block;
+    padding: 0 30px 0 0;
+    text-decoration: none;
+    outline: none;
+}
+
+/*----下線*/
+.arrow_link::before{
+    content: '';
+  position: absolute;
+    bottom:-8px;
+    left:0%;
+    width: 100%;
+    height: 2px;
+    border-radius: 1px;
+    background:var(--sub-color);
+    transition: all .3s;
+}
+/*----矢印*/
+.arrow_link::after{
+    content: '';
+    position: absolute;
+    bottom:0px;
+    right:-5px;    
+    width: 25px;
+    height:2px;
+    border-radius: 1px;
+    background:var(--sub-color);
+    transform: rotate(45deg);
+    transition: all .3s;
+}
+
+.arrow_link:hover::before{
+    left:10%;
+}
+.arrow_link:hover::after{
+    right:-14%;
+}
+
+/*メインコンテンツ*/
+.content-wrapper{
+    width: 90%;
+    max-width: 1780px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+
+h2{
+    font-size: 2rem;
+    font-weight: 400;
+    position:relative;
+    padding: 1rem 0;
+}
+h2::after{
+    background-color: var(--main-color);
+    border-radius: 2px;
+    content: "";
+    height: 4px;
+    width: 2rem;
+    position: absolute;
+    left: 0;
+    bottom: 0.5rem;
+}
+h2::before{
+    font-size:1rem;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 300;
+    color:var(--main-color);
+    position:absolute;
+    padding-top: 1rem;
+    top:-1rem;
+    left:0;
+}
+/*見出し上テキスト*/
+[data-midashi="News"]::before{
+    content:"News";
+}
+[data-midashi="Activities_of_the_Department"]::before{
+    content:"Activities of the Department";
+}
+[data-midashi="Graduation_Works"]::before{
+    content:"Graduation Works";
+}
+[data-midashi="Teacher_Staff"]::before{
+    content:"Teacher / Staff";
+}
+
+
+.home-news-wrap{
+    display: flex;
+    width: 100%;
+    padding-top: 1rem;
+    margin-bottom: 6rem;
+}
+.home-news-box{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 50%;
+}
+.card-wrap{
+    width: 43%;
+}
+.card-wrap header{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+}
+.card-wrap time{
+    color: var(--sub-color);
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-left: 1rem;
+}
+.post-tag{
+    background-color: var(--sub-color);
+    padding: 0.25rem 1rem;
+    color: #E5E5E5;
+}
+.card-wrap main{
+    margin: 1rem;
+}
+.card-wrap main img{
+    width: 100%;
+    height: auto;
+    box-sizing: border-box;
+}
+.card-wrap main h3{
+    font-size: 1.25rem;
+    color: #000;
+    margin: 1rem 0 0.75rem;
+
+}
+.card-wrap main p{
+    font-size: 1rem;
+    color: var(--text-color);}
+
+.home-news-list{
+    width: 100%;
+    text-align: right;
+}
+
+.home-news-info{
+    width: 50%;
+
+}
+.home-news-info-child{
+    border: 3px solid var(--main-color);
+    position: relative;
+    font-size: 1.5rem;
+    line-height: 2.5rem;
+    padding: 4rem 5rem;
+    z-index: 0;
+    overflow: hidden; 
+    margin-bottom: 1.75rem;
+}
+.home-news-info-child::after{
+    color: var(--main-color);
+    font-family: 'Josefin Sans', sans-serif;
+    content: "Information";
+    padding: 0;
+    margin: 0;
+    font-size: 7rem;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    opacity: 0.5;
+}
+
+.home-news-info ul{
+    text-align: right;
+    font-size: 2rem;
+}
+.home-news-info li{
+    margin-bottom: 1.75rem;
+}
+.home-news-info a{
+    margin-right: 3rem;
+    position: relative;
+}
+[target="_blank"]::after{
+    content: url(img/_blank.svg);
+    height: 2rem;
+    position: absolute;
+    right: -3rem;
+}
+/*学科活動*/
+
+.home-activities-wrap{
+    display: flex;
+    justify-content: space-around;
+    padding: 4rem 0;
+}
+.home-activities-card{
+    display: block;
+    width: 30%;
+}
+.home-activities-card div{
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position: center center;
+    text-align: center;
+    display: grid;
+    place-items: center;
+}
+.activities-bg-field_work{
+    background-image: url(img/kari_fieldwork.jpg);
+}
+
+.activities-bg-sp_lecture{
+    background-image: url(img/kari_tokubetu2.jpg);
+}
+
+.activities-bg-exhibition{
+    background-image: url(img/kari_tenji.jpg);
+}
+.home-activities-card span{
+    background: rgba( 255, 255, 255, 0.25 );
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 4px );
+-webkit-backdrop-filter: blur( 4px );
+padding: 1rem 1.5rem;
+font-size: 1.5rem;
+border: solid 1px #fff;
+color: #fff;
+min-width: 80%;
+}
+
+
+/*卒業制作作品*/
+
+.ga_wrap{
+    width: 100%;
+    padding: 4rem 0;
+}
+
+/*教員・スタッフ*/
+.home-teacher-wrap{
+    padding: 4rem 0;
+}
+.home-teacher-wrap img{
+    width: 100%;
+    height: 15rem;
+    object-fit: cover;
+    object-position: 50% 50%;
+    margin-top: 2rem;
+}
+
+/*フッター*/
+.page-footer{
+    width: 100%;
+    height: 10rem;
+    margin: 3rem auto 0;
+    background-color: #E5E5E5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.page-footer small{
+    font-size: 1.25rem;
+}
+
+/*------ スライダーの横幅 ------*/
+.slider{
+    width:100%;
+      padding: 0;
+    margin:0 auto;
+  }
+  
+  /*------ スライダー画像 ------*/
+  .slider img{
+      width:90%;
+  }
+  
+  /*-------- 高さ調整 ----------*/
+  .slider .slick-slide{
+      height:auto!important;
+  }
+  
+  /*---------- 矢印 ----------*/
+  .slider .slick-next{
+      right:0!important;
+  }
+  .slider .slick-prev{
+      left:0!important;
+  }
+  .slider .slick-arrow{
+      width: initial!important;
+      height: initial!important;
+      z-index:2!important;
+  }
+  .slider .slick-arrow:before{
+      font-size: 30px!important;
+  }
+/*------------------*/
+/*----ハンバーガー----*/
+/*------------------*/
+#menu-btn {
+    display: block;
+    position: fixed;
+    top: 32px;
+    left: calc(100vw - 88px);
+    cursor: pointer;
+    z-index: 1000;
+}
+
+#menu-btn span {
+    display: block;
+    width: 48px;
+    height: 4px;
+    background-color: var(--sub-color);
+    margin-bottom: 0.6rem;
+    transition: 0.4s;
+    border-radius: 4px; /* 丸い線端 */
+}
+
+#menu-btn.open span:nth-child(1) {
+    width: 56px;
+    transform: rotate(-45deg) translate(-6px, 13px);
+}
+
+#menu-btn.open span:nth-child(2) {
+    opacity: 0;
+}
+
+#menu-btn.open span:nth-child(3) {
+    width: 56px;
+    transform: rotate(45deg) translate(-6px, -13px);
+}
+
+#menu {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #F8F8F8EE;
+    z-index: 999;
+}
+
+#menu.show {
+    display: flex;
+    justify-content: flex-end;
+    animation: appear .5s ease;
+  }
+  @keyframes appear {
+    0%{
+      opacity: 0;
+    }
+    100%{
+      opacity: 1;
+    }
+  }
+
+
+#menu ul {
+    border: 1px solid red;
+    width: 50%;
+    max-width: 375px;
+    list-style: none;
+    padding: 0;
+    text-align: left;
+    margin-top: 100px;
+}
+
+#menu ul li {
+    margin-bottom: 20px;
+}
+
+#menu a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 1.25rem;
+}
